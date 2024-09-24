@@ -11,7 +11,7 @@ interface MenuItem {
 export default function Navbar() {
   return (
     <nav className="NavbarItems">
-      <h1 className="Navbar-logo">React</h1>
+      <h1 className="Navbar-logo">Plataforma Genómica</h1>
       <div className="menu-icon"></div>
       <ul>
         {MenuItems.map((item: MenuItem, index: number) => {

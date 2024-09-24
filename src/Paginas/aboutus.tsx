@@ -11,7 +11,7 @@ function Aboutus() {
         </header>
         
         <div>
-            <h1>Plataforma Genomica</h1>
+            <h1>Plataforma Genómica</h1>
         </div>
 
         <div>

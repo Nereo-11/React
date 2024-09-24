@@ -1,0 +1,31 @@
+.public {
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+}
+
+.section-left {
+    padding: 60px 0;
+    min-height: 20vh;
+    display: flex;
+    justify-content: left;
+}
+
+.target-l {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    width: 50%;
+    justify-content: left;
+}
+
+.section-right {
+    padding: 60px 0;
+    min-height: 40vh;
+    display: flex;
+    justify-content: right;
+}
