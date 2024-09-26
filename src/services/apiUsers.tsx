@@ -14,18 +14,10 @@ class apiUsers {
     // Create user
     public createUser(email: string, password: string ) {
         createUserWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
-            /** 
-             * Signed in 
-             * const user = userCredential.user;
-             */
+        .then((_userCredential) => {
             return true // CORRECT
         })
-        .catch((error) => {
-            /**
-             * const errorCode = error.code;
-             * const errorMessage = error.message;
-             */
+        .catch((_error) => {
             return false // ERROR
         });
     } 
@@ -38,23 +30,15 @@ class apiUsers {
                 // Email verification sent!
                 return true
             });
-        } else { return false /** No user logged */ }
+        } else { return false /** User no logged */ }
     }
     // Sigin user
     public sigInUser (email: string, password: string) {
         signInWithEmailAndPassword(this.auth, email, password)
-        .then((userCredential) => {
-            /** 
-             * Signed in 
-             * const user = userCredential.user;
-             */
+        .then((_userCredential) => {
             return true // CORRECT
         })
-        .catch((error) => {
-            /**
-             * const errorCode = error.code;
-             * const errorMessage = error.message;
-             */
+        .catch((_error) => {
             return false // ERROR
         });
     } 
@@ -63,7 +47,7 @@ class apiUsers {
         signOut(this.auth).then(() => {
             // Sign-out successful.
             return true
-        }).catch((error) => {
+        }).catch((_error) => {
             // An error happened.
             return false
         });
@@ -76,10 +60,10 @@ class apiUsers {
             }).then(() => {
                 // Profile updated!
                 return true // CORRECT
-            }).catch((error) => {
+            }).catch((_error) => {
                 return false // ERROR
             })
-        } else { return false /** No user logged */ }
+        } else { return false /** User no logged */ }
     }
     // Change email
     public changeUserEmail () {
@@ -87,17 +71,17 @@ class apiUsers {
             updateEmail(this.auth.currentUser, "user@example.com").then(() => {
                 // Email updated!
                 return true // CORRECT
-            }).catch((error) => {
+            }).catch((_error) => {
                 return false // ERROR
             });
-        } else { return false /** No user logged */ }
+        } else { return false /** User no logged */ }
     }
     // Change password
     public changePassword (user: User, newPassword: string) {
         updatePassword(user, newPassword).then(() => {
             // Update successful.
             return true
-            }).catch((error) => {
+            }).catch((_error) => {
             // An error ocurred
             return false
             });
@@ -109,7 +93,7 @@ class apiUsers {
             // Password reset email sent!
             return true
         })
-        .catch((error) => {
+        .catch((_error) => {
             // error to send email
             return false
         });
