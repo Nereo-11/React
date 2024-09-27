@@ -12,7 +12,6 @@ import Aboutus from "./Paginas/aboutus"
 
 function App() {
   const navigate = useNavigate();
-
   return (
     <>
       <div>
