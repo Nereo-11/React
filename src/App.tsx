@@ -8,10 +8,16 @@ import Signup from "./Paginas/signup"
 import Repository from "./Paginas/repository"
 import Account from "./Paginas/account"
 import Aboutus from "./Paginas/aboutus"
+import { auth, analytics } from './config/firebase';
 
 
 function App() {
   const navigate = useNavigate();
+  // @ts-ignore
+  const auths = auth;
+  // @ts-ignore
+  const analytic = analytics;
+  
   return (
     <>
       <div>

@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 
-const firebaseConfig = JSON.parse(import.meta.env.FB_CONFIG);
+const firebaseConfig = JSON.parse(import.meta.env.VITE_FB_CONFIG);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

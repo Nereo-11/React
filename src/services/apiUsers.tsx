@@ -6,7 +6,7 @@ import { getAuth, createUserWithEmailAndPassword,
          Auth
         } from "firebase/auth"
 
-class apiUsers {
+export class apiUsers {
     private auth : Auth
     constructor(){
         this.auth = getAuth()
@@ -34,7 +34,7 @@ class apiUsers {
     }
     // Sigin user
     public sigInUser (email: string, password: string) {
-        signInWithEmailAndPassword(this.auth, email, password)
+        return signInWithEmailAndPassword(this.auth, email, password)
         .then((_userCredential) => {
             return true // CORRECT
         })
@@ -99,5 +99,3 @@ class apiUsers {
         });
     }
 }
-
-export default apiUsers
