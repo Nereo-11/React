@@ -41,7 +41,7 @@ function Login() {
         <h3>Crear Contraseña</h3>
             <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword} required></input>
 
-        <a onClick={() => navigate('/signup')}>Recuperar Contraseña</a>
+        <a onClick={() => navigate('/recoverPassword')}>Recuperar Contraseña</a>
 
         <button onClick={loginAuth}>Iniciar sesión</button>
 

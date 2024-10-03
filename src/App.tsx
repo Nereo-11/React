@@ -8,6 +8,7 @@ import Signup from "./Paginas/signup"
 import Repository from "./Paginas/repository"
 import Account from "./Paginas/account"
 import Aboutus from "./Paginas/aboutus"
+import RecoverPassword from './Paginas/recoverPassword'
 import { auth, analytics } from './config/firebase';
 
 
@@ -17,7 +18,7 @@ function App() {
   const auths = auth;
   // @ts-ignore
   const analytic = analytics;
-  
+
   return (
     <>
       <div>
@@ -53,6 +54,7 @@ export default function AppWrapper() {
         <Route path="/repository" element={<Repository />} />
         <Route path="/account" element={<Account />} />
         <Route path="/aboutus" element={<Aboutus />} />
+        <Route path='/recoverPassword' element={<RecoverPassword/>} />
       </Routes>
     </Router>
   );
