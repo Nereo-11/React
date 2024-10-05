@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import './signup.css';
 import {apiUsers} from "../services/apiUsers";
 
@@ -16,13 +16,14 @@ function Login() {
     }
     
     function loginAuth () {
-        userAPI.sigInUser(email, password).then((result) => {
+        userAPI.sigInUser(email, password)
+        .then((result) => {
             if (result) {
-              console.log("Inicio de sesión exitoso");
               navigate('/Home')
-            } else {
-              console.log("Error al iniciar sesión");
             }
+          })
+        .catch((_error) => {
+            alert("Erorr al iniciar sesion, verifica el correo o la contraseña.")
           });
     }
 
@@ -41,11 +42,15 @@ function Login() {
         <h3>Crear Contraseña</h3>
             <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword} required></input>
 
-        <a onClick={() => navigate('/recoverPassword')}>Recuperar Contraseña</a>
+        <br/><br/>
+        <Link to="/recoverPassword">Recuperar Contraseña</Link>
+        <br/><br/>
 
         <button onClick={loginAuth}>Iniciar sesión</button>
 
-        <p>¿No tienes cuenta? Registrate <a onClick={() => navigate('/signup')}>aqui</a></p>
+        <br/><br/><br/>
+
+        <p>¿No tienes cuenta? <Link to="/signup">Registrate aqui</Link></p>
 
         </div>
         </section>

@@ -10,6 +10,7 @@ import Account from "./Paginas/account"
 import Aboutus from "./Paginas/aboutus"
 import RecoverPassword from './Paginas/recoverPassword'
 import { auth, analytics } from './config/firebase';
+import PrivateRoute from './components/PrivateRoute/privateRoute';
 
 
 function App() {
@@ -48,12 +49,12 @@ export default function AppWrapper() {
     <Router>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<PrivateRoute> <Home/> </PrivateRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/repository" element={<Repository />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/repository" element={<PrivateRoute> <Repository/> </PrivateRoute>} />
+        <Route path="/account" element={<PrivateRoute> <Account/> </PrivateRoute>} />
+        <Route path="/aboutus" element={<PrivateRoute> <Aboutus/> </PrivateRoute>} />
         <Route path='/recoverPassword' element={<RecoverPassword/>} />
       </Routes>
     </Router>

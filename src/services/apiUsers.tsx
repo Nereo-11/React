@@ -99,15 +99,24 @@ export class apiUsers {
             });
     }
     // Send email to change password
-    public sendEmailChangePassword (email: string) {
+    public sendEmailChangePassword (email: string): Promise<boolean> {
+        return new Promise<boolean> ((resolve, reject) => {
         sendPasswordResetEmail(this.auth, email)
         .then(() => {
             // Password reset email sent!
-            return true
+            resolve(true)
         })
         .catch((_error) => {
             // error to send email
-            return false
+           reject(false)
         });
+    })
+    }
+    public isLoged (){
+        if(this.auth.currentUser) {
+            return true
+        } else {
+            return false
+        } 
     }
 }

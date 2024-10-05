@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { apiUsers } from "../services/apiUsers";
 import React, { useState } from "react";
 function RecoverPassword () {
-    const navigate = useNavigate();
     const userAPI = new apiUsers();
     const [email, setEmail] = useState<string>('');
 
@@ -12,6 +11,13 @@ function RecoverPassword () {
 
     function sendEmailForPassword(){
         userAPI.sendEmailChangePassword(email)
+        .then((_result) => {
+            setEmail('')
+            alert("Correo enviado correctamente")
+        })
+        .catch((_error) => {
+            alert("Error al enviar correo, intenta nuevamente")
+        })
     }
     return (
         <>
@@ -23,7 +29,7 @@ function RecoverPassword () {
         <button onClick={() => sendEmailForPassword()}>Verificar</button>
 
         <div>
-            <p>¿Tienes cuenta? Inicia Sesion <a onClick={() => navigate('/login')}>aqui</a></p>
+            <p>¿Tienes cuenta? <Link to="/login">Inicia sesion aqui</Link></p>
         </div>
         </>
     )

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiUsers } from "../services/apiUsers";
 import './signup.css';
 
@@ -31,21 +31,29 @@ function Signup() {
         setRpassword(result.target.value)
     }
     function addUser () {
-        userAPI.createUser(email, password).then((result) => {
+        userAPI.createUser(email, password)
+        .then((result) => {
             if (result){
-                userAPI.updateUser(name, "https://").then((result) => {
-                    
+                userAPI.updateUser(name, "https://")
+                .then((result) => {
                     if(result) {
-                        userAPI.sendUserEmailVerification().then((result) => {
-                            result? navigate('/Home') : alert("Error, por favor intenta de nuevo")
+                        userAPI.sendUserEmailVerification()
+                        .then((result) => {
+                            if(result) 
+                            navigate('/Home')  
                         })
-                    }else {
-                        alert("Erorr añadiendo nombre y foto")
+                        .catch((_error) => {
+                            alert("Error, por favor intenta de nuevo")
+                        })
                     }
                 })
-            }else {
-                console.log("Error creando usuario")
+                .catch((_error) => {
+                        alert("Erorr añadiendo, favor de contactar con soporte tecnico")
+                })
             }
+        })
+        .catch((_error) => {
+            alert("Error al crear usuraio, intenta nuevamente")
         });
     }
 
@@ -74,7 +82,7 @@ function Signup() {
         </section>
 
         <div>
-            <p>¿Tienes cuenta? Inicia Sesion <a onClick={() => navigate('/login')}>aqui</a></p>
+            <p>¿Tienes cuenta? <Link to="/login">Inicia sesion aqui</Link></p>
         </div>
         
         </>
