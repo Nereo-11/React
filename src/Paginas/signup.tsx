@@ -29,14 +29,14 @@ function Signup() {
 
             <h3>Repetir Contraseña</h3>
             <input id = "rcontraseña" type="text" className={'private'} ></input>
+
+            <button className={'button'} onClick={() => Signup()}>Aceptar</button>
+            <p>¿Tienes cuenta? Inicia Sesion <a onClick={() => navigate('/login')}>aqui</a></p>
         </div>
         </section>
 
 
         <div>
-            
-            <button onClick={() => Signup()}>Aceptar</button>
-            <p>¿Tienes cuenta? Inicia Sesion <a onClick={() => navigate('/login')}>aqui</a></p>
             <button onClick={() => navigate('/home')}>Home</button>
             <button onClick={() => navigate('/')}>App</button>
         </div>

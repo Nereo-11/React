@@ -16,18 +16,19 @@ function Login() {
         <h3>Correo</h3>
             <input id = "email" type="email" className={'public'} pattern=".+@example\.com" required></input>
 
-        <h3>Crear Contraseña</h3>
+        <h3>Contraseña</h3>
             <input id = "contraseña" type="text" className={'private'}></input>
 
         <a onClick={() => navigate('/signup')}>Recuperar Contraseña</a>
+
+        <button className={'button'} onClick={() => Login()}>Iniciar Sesion</button>
+
+        <p>¿No tienes cuenta? Registrate <a onClick={() => navigate('/signup')}>aqui</a></p>
 
         </div>
         </section>
 
         <div>
-            
-            <button onClick={() => navigate('/home')}>Home</button>
-            <p>¿No tienes cuenta? Registrate <a onClick={() => navigate('/signup')}>aqui</a></p>
             <button onClick={() => navigate('/')}>App</button>
         </div>
 

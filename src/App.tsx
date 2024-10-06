@@ -8,6 +8,8 @@ import Signup from "./Paginas/signup"
 import Repository from "./Paginas/repository"
 import Account from "./Paginas/account"
 import Aboutus from "./Paginas/aboutus"
+import Verification from './Paginas/verification';
+import RecoverPass from './Paginas/recoverpass';
 
 
 function App() {
@@ -47,6 +49,8 @@ export default function AppWrapper() {
         <Route path="/repository" element={<Repository />} />
         <Route path="/account" element={<Account />} />
         <Route path="/aboutus" element={<Aboutus />} />
+        <Route path="/verification" element={<Verification />} />
+        <Route path="/recoverpass" element={<RecoverPass />} />
       </Routes>
     </Router>
   );

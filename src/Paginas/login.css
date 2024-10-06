@@ -38,3 +38,14 @@
     border: 1px solid rgb(0, 0, 0);
     -webkit-text-security: disc; /* Cambia el texto por un círculo */
 }
+
+.button {
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(46, 142, 244); /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    padding: 10px 15px; /* Espaciado interno para mayor tamaño */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin-top: 35px; /* Espacio exterior alrededor del botón */
+}
