@@ -64,21 +64,22 @@ function Signup() {
         </div>
 
         <section className={'section'}>
-        <div className={'target'}>
-            <h3>Nombre</h3>
-            <input id = "name" type="text" className={'public'} value={name} onChange={handleName}></input>
+          <div className={'target'}>
+              <h3>Nombre</h3>
+              <input id = "name" type="text" className={'public'} value={name} onChange={handleName}></input>
 
-            <h3>Correo</h3>
-            <input id = "email" type="email" className={'public'} pattern=".+@example\.com" value={email} onChange={handleEmail} required></input>
+              <h3>Correo</h3>
+              <input id = "email" type="email" className={'public'} pattern=".+@example\.com" value={email} onChange={handleEmail} required></input>
 
-            <h3>Crear Contraseña</h3>
-            <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword}></input>
+              <h3>Crear Contraseña</h3>
+              <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword}></input>
 
-            <h3>Repetir Contraseña</h3>
-            <input id = "rcontraseña" type="text" className={'private'} value={rpassword} onChange={handleRpassword}></input>
+              <h3>Repetir Contraseña</h3>
 
-            <button onClick={() => addUser()}>Registrarse</button>
-        </div>
+              <input id = "rcontraseña" type="text" className={'private'} value={rpassword} onChange={handleRpassword}></input>
+
+              <button onClick={() => addUser()}>Registrarse</button>
+          </div>
         </section>
 
         <div>

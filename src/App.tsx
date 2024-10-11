@@ -11,6 +11,8 @@ import Aboutus from "./Paginas/aboutus"
 import RecoverPassword from './Paginas/recoverPassword'
 import { auth, analytics } from './config/firebase';
 import PrivateRoute from './components/PrivateRoute/privateRoute';
+import Verification from './Paginas/verification';
+import RecoverPass from './Paginas/recoverpass';
 
 
 function App() {

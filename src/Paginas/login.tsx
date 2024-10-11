@@ -34,25 +34,25 @@ function Login() {
         </div>
 
         <section className={'section'}>
-        <div className={'target'}>
+          <div className={'target'}>
 
-        <h3>Correo</h3>
+            <h3>Correo</h3>
             <input id = "email" type="email" className={'public'} pattern=".+@example\.com" value={email} onChange={handleEmail} required></input>
 
-        <h3>Crear Contraseña</h3>
+            <h3>Contraseña</h3>
             <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword} required></input>
 
-        <br/><br/>
-        <Link to="/recoverPassword">Recuperar Contraseña</Link>
-        <br/><br/>
+            <br/><br/>
+            <Link to="/recoverPassword">Recuperar Contraseña</Link>
+            <br/><br/>
 
-        <button onClick={loginAuth}>Iniciar sesión</button>
+            <button className={'button'} onClick={loginAuth}>Iniciar Sesion</button>
 
-        <br/><br/><br/>
+            <br/><br/><br/>
 
-        <p>¿No tienes cuenta? <Link to="/signup">Registrate aqui</Link></p>
+            <p>¿No tienes cuenta? <Link to="/signup">Registrate aqui</Link></p>
 
-        </div>
+          </div>
         </section>
 
         </>
