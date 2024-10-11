@@ -1,8 +1,31 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import './signup.css';
+import {apiUsers} from "../services/apiUsers";
 
 function Login() {
     const navigate = useNavigate();
+    const userAPI: apiUsers = new apiUsers();
+    const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const handleEmail = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setEmail(event.target.value)
+    }
+    const handlePassword = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setPassword(event.target.value)
+    }
+    
+    function loginAuth () {
+        userAPI.sigInUser(email, password)
+        .then((result) => {
+            if (result) {
+              navigate('/Home')
+            }
+          })
+        .catch((_error) => {
+            alert("Erorr al iniciar sesion, verifica el correo o la contraseña.")
+          });
+    }
 
     return(
         <>
@@ -11,26 +34,26 @@ function Login() {
         </div>
 
         <section className={'section'}>
-        <div className={'target'}>
+          <div className={'target'}>
 
-        <h3>Correo</h3>
-            <input id = "email" type="email" className={'public'} pattern=".+@example\.com" required></input>
+            <h3>Correo</h3>
+            <input id = "email" type="email" className={'public'} pattern=".+@example\.com" value={email} onChange={handleEmail} required></input>
 
-        <h3>Contraseña</h3>
-            <input id = "contraseña" type="text" className={'private'}></input>
+            <h3>Contraseña</h3>
+            <input id = "contraseña" type="text" className={'private'} value={password} onChange={handlePassword} required></input>
 
-        <a onClick={() => navigate('/signup')}>Recuperar Contraseña</a>
+            <br/><br/>
+            <Link to="/recoverPassword">Recuperar Contraseña</Link>
+            <br/><br/>
 
-        <button className={'button'} onClick={() => Login()}>Iniciar Sesion</button>
+            <button className={'button'} onClick={loginAuth}>Iniciar Sesion</button>
 
-        <p>¿No tienes cuenta? Registrate <a onClick={() => navigate('/signup')}>aqui</a></p>
+            <br/><br/><br/>
 
-        </div>
+            <p>¿No tienes cuenta? <Link to="/signup">Registrate aqui</Link></p>
+
+          </div>
         </section>
-
-        <div>
-            <button onClick={() => navigate('/')}>App</button>
-        </div>
 
         </>
     )

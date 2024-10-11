@@ -6,41 +6,51 @@ import { getAuth, createUserWithEmailAndPassword,
          Auth
         } from "firebase/auth"
 
-class apiUsers {
+export class apiUsers {
     private auth : Auth
     constructor(){
         this.auth = getAuth()
     }
     // Create user
-    public createUser(email: string, password: string ) {
-        createUserWithEmailAndPassword(this.auth, email, password)
-        .then((_userCredential) => {
-            return true // CORRECT
+    public createUser(email: string, password: string ): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            createUserWithEmailAndPassword(this.auth, email, password)
+            .then((_userCredential) => {
+                resolve(true) // CORRECT
+            })
+            .catch((_error) => {
+                reject(false) // ERROR
+            });
         })
-        .catch((_error) => {
-            return false // ERROR
-        });
     } 
     // Send email verification
-    public sendUserEmailVerification () {
-        //auth.useDeviceLanguage();
-        if(this.auth.currentUser){
-            sendEmailVerification(this.auth.currentUser)
-            .then(() => {
-                // Email verification sent!
-                return true
-            });
-        } else { return false /** User no logged */ }
+    public sendUserEmailVerification (): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            //auth.useDeviceLanguage();
+            if(this.auth.currentUser){
+                sendEmailVerification(this.auth.currentUser)
+                .then(() => {
+                    // Email verification sent!
+                    resolve(true)
+                }).catch((_error) => {
+                    reject(false)
+                });
+            } else { reject(false) /** User no logged */ }
+        });
+
     }
     // Sigin user
-    public sigInUser (email: string, password: string) {
-        signInWithEmailAndPassword(this.auth, email, password)
-        .then((_userCredential) => {
-            return true // CORRECT
+    public sigInUser (email: string, password: string): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            signInWithEmailAndPassword(this.auth, email, password)
+            .then((_userCredential) => {
+                resolve(true) // CORRECT
+            })
+            .catch((_error) => {
+                reject(false) // ERROR
+            });
         })
-        .catch((_error) => {
-            return false // ERROR
-        });
+        
     } 
     // Sign out
     public signOut () {
@@ -53,17 +63,19 @@ class apiUsers {
         });
     }
     // Update profile --- NAME and PHOTO
-    public updateUser (name: string, photo: string){
-        if(this.auth.currentUser){
-            updateProfile(this.auth.currentUser, {
-            displayName: name, photoURL: photo
-            }).then(() => {
-                // Profile updated!
-                return true // CORRECT
-            }).catch((_error) => {
-                return false // ERROR
-            })
-        } else { return false /** User no logged */ }
+    public updateUser (name: string, photo: string): Promise<boolean>{
+        return new Promise<boolean>((resolve, reject) => {
+            if(this.auth.currentUser){
+                updateProfile(this.auth.currentUser, {
+                displayName: name, photoURL: photo
+                }).then(() => {
+                    // Profile updated!
+                    resolve(true) // CORRECT
+                }).catch((_error) => {
+                    reject(false) // ERROR
+                })
+            } else { reject(false) /** User no logged */ }
+        })
     }
     // Change email
     public changeUserEmail () {
@@ -87,17 +99,24 @@ class apiUsers {
             });
     }
     // Send email to change password
-    public sendEmailChangePassord (email: string) {
+    public sendEmailChangePassword (email: string): Promise<boolean> {
+        return new Promise<boolean> ((resolve, reject) => {
         sendPasswordResetEmail(this.auth, email)
         .then(() => {
             // Password reset email sent!
-            return true
+            resolve(true)
         })
         .catch((_error) => {
             // error to send email
-            return false
+           reject(false)
         });
+    })
+    }
+    public isLoged (){
+        if(this.auth.currentUser) {
+            return true
+        } else {
+            return false
+        } 
     }
 }
-
-export default apiUsers
