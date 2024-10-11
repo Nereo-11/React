@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar.tsx";
+import './aboutus.css';
 
 function Aboutus() {
-    const navigate = useNavigate();
 
     return(
         <>
@@ -14,10 +13,8 @@ function Aboutus() {
             <h1>Plataforma Genómica</h1>
         </div>
 
-        <div>
-            <p>About us</p>
-            <button onClick={() => navigate('/home')}>Home</button>
-            <button onClick={() => navigate('/')}>App</button>
+        <div className={'container'}>
+            <p >About us</p>
         </div>
 
         </>

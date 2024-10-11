@@ -1,0 +1,10 @@
+.container {
+    width: 100px;          /* Ancho del 80% del contenedor padre */
+    height: 100px;        /* Altura fija para darle forma de rectángulo */
+    background-color: rgb(255, 255, 255);  /* Color de fondo para hacer visible el div */
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); /* Sombra aplicada correctamente */
+    border-radius: 20px;  /* Bordes redondeados de 20px */
+    margin: 20px auto;    /* Centrar el div horizontalmente */
+    vertical-align:auto;
+  }
+  

@@ -24,7 +24,7 @@ export const MenuItems: MenuItem[] = [
   },
   {
     Title: "User",
-    url: "account",
+    url: "/account",
     cName: "nav-links"
   }
 ];

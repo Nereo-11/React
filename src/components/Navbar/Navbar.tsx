@@ -1,5 +1,6 @@
 import './Navbar.css';
 import { MenuItems } from "./MenuItems";
+import { Link } from 'react-router-dom';
 
 // Definimos una interfaz para los elementos del menú
 interface MenuItem {
@@ -16,11 +17,13 @@ export default function Navbar() {
       <ul>
         {MenuItems.map((item: MenuItem, index: number) => {
           return (
-            <li key={index}>
-              <a className={item.cName} href={item.url}>
+            <Link className={item.cName} to={item.url}>
+              <li key={index}>
+              
                 {item.Title}
-              </a>
-            </li>
+              
+              </li>
+            </Link>
           );
         })}
       </ul>
