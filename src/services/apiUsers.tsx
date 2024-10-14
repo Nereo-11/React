@@ -112,11 +112,20 @@ export class apiUsers {
         });
     })
     }
+    // check if is loged
     public isLoged (){
         if(this.auth.currentUser) {
             return true
         } else {
             return false
         } 
+    }
+    // get the current user
+    public getUser () {
+        if(this.auth.currentUser) {
+            return this.auth.currentUser
+        } else {
+            return null
+        }
     }
 }
