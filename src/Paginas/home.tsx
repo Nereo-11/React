@@ -7,27 +7,18 @@ function Home() {
 
     
     return(
-        <>
-            
+        <>  
         <header>
             <Navbar/>
         </header>
-            
-            
-            <div>
-                <h1>Plataforma Genómica</h1>
-            </div>
 
-           
-            
-            
-
-
-        <div>
-            <p>Home</p>
-            <button onClick={() => navigate('/home')}>Home</button>
-            <button onClick={() => navigate('/')}>App</button>
-        </div>
+        <section>
+            <img src="https://th.bing.com/th/id/OIP.uwrMe5k-OsdGk9US2MUlSAHaE8?rs=1&pid=ImgDetMain" /> 
+            <h3>Informacion sobre la pagina</h3>
+            <p>
+                Descubra nuestra plataforma de búsqueda de datos genómicos, diseñada para facilitar el acceso y análisis de vastos conjuntos de datos genéticos. Con una interfaz intuitiva y herramientas de búsqueda avanzadas, podrá explorar, filtrar y visualizar información genética de manera rápida y eficiente
+            </p>   
+        </section>   
 
         </>
     )

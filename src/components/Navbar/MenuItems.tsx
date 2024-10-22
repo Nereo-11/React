@@ -21,11 +21,6 @@ export const MenuItems: MenuItem[] = [
     Title: "About Us",
     url: "/aboutus",
     cName: "nav-links"
-  },
-  {
-    Title: "User",
-    url: "/account",
-    cName: "nav-links"
   }
 ];
   

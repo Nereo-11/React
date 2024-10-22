@@ -3,24 +3,12 @@
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css'
 import Home from "./Paginas/home"
-import Login from "./Paginas/login"
-import Signup from "./Paginas/signup"
 import Repository from "./Paginas/repository"
-import Account from "./Paginas/account"
 import Aboutus from "./Paginas/aboutus"
-import RecoverPassword from './Paginas/recoverPassword'
-import { auth, analytics } from './config/firebase';
-import PrivateRoute from './components/PrivateRoute/privateRoute';
-import Verification from './Paginas/verification';
-import RecoverPass from './Paginas/recoverpass';
 
 
 function App() {
   const navigate = useNavigate();
-  // @ts-ignore
-  const auths = auth;
-  // @ts-ignore
-  const analytic = analytics;
 
   return (
     <>
@@ -50,14 +38,10 @@ export default function AppWrapper() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/home" element={<PrivateRoute> <Home/> </PrivateRoute>} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/repository" element={<PrivateRoute> <Repository/> </PrivateRoute>} />
-        <Route path="/account" element={<PrivateRoute> <Account/> </PrivateRoute>} />
-        <Route path="/aboutus" element={<PrivateRoute> <Aboutus/> </PrivateRoute>} />
-        <Route path='/recoverPassword' element={<RecoverPassword/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/repository" element={ <Repository/>} />
+        <Route path="/aboutus" element={ <Aboutus/>} />
       </Routes>
     </Router>
   );
