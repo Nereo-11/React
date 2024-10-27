@@ -22,20 +22,22 @@ function Repository() {
             <Navbar/>
         </header>
 
-        <div>
+        <div className={'title'}>
             <h1>Plataforma Genómica</h1>
         </div>
 
-        <body>
-        <section className={'section'}>
+        <div className={"wrapper"}>
         <div className={'search'}>
 
             <input id = "busqueda" type="text" className={'public'}></input>
 
         </div>
-        </section>
+        </div>
+        <body>
 
-        <section className={'section-left'}>
+        
+
+        <div className={'div-left'}>
         <div className={'target-l'}>
         <button onClick={() => searchKey('human')}>
         <h4>Humanos</h4>
@@ -47,19 +49,14 @@ function Repository() {
         </button >
         </div>
         <div className={'target-l'}>
-        <button>
-        <h4>Animales</h4>
+        <button onClick={() => searchKey('planta')} >
+        <h4>Plantas</h4>
         </button>
         </div>
-        </section>
-
-        <section className={'section-right'}>
-        <div className={'target'}>
-        
         </div>
-        </section>
 
-        <div>
+
+        <div className={'table'}>
         <table>
         <thead>
           <tr>
@@ -73,7 +70,7 @@ function Repository() {
             <tr key={index}>
               <td>{item.nombre}</td>
               <td>{item.especie}</td>
-              <td>{item.descarga}</td>
+              <td> <a href={item.descarga} target="_blank" rel="noopener noreferrer">Download</a></td>
             </tr>
           ))}
         </tbody>
