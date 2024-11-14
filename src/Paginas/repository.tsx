@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar/Navbar.tsx";
+import CardList from "../components/ResultsList/cardList.tsx";
 import './repository.css';
 import { useEffect, useState } from "react";
 
@@ -67,24 +68,7 @@ function Repository() {
           </div>
 
           <div className={'table'}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Organismo</th>
-                  <th>Download</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item: { nombre: string; especie: string; descarga: string }, index) => (
-                  <tr key={index}>
-                    <td>{item.nombre}</td>
-                    <td>{item.especie}</td>
-                    <td> <a href={item.descarga} target="_blank" rel="noopener noreferrer">Download</a></td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <CardList data={data} />
           </div>
         </div>
         

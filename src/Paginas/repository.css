@@ -85,6 +85,7 @@
     width: 100%; /* Ancho del div izquierdo */
     position: fixed; /* Mantener el div fijo */
     top: 80px; /* Distancia desde la parte superior de la ventana */
+    left: 0;
     background-color: #ffffff;
 
 }
